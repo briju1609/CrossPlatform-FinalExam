@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<title>Form</title>
+
+	<script>
+         $(document).on("pagecreate","body",function(event) {
+            $(window).on("orientationchange",function(e) {
+               if(e.orientation == "landscape") {
+                  $("p").text("portrait orientation!!!");
+               } else {
+                  $("p").text("landscape orientation!!!");
+               }
+            });
+         });
+      </script>
+   </head>
+
+</head>
+<body style="background-image: url('../finalExam/www/formbg.jpg');">
+
+	<h1>Form</h1>
+	 <form>
+
+	<table> 	
+	<tr>	
+  	<td>First Name:</td>
+ 	<td><input id="name" type="text" name="firstname" required=""></td>
+ 	</tr>
+
+ 	<tr>
+  	<td>Email:</td>
+ 	<td><input type="text" name="email" required=""></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td>Address:</td>
+ 	<td><textarea required=""></textarea></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td>Phone Number:</td>
+ 	<td><input type="text" name="phone" required=""></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td>Number of copies:</td>
+ 	<td>
+ 	<select id="copy">
+ 		<option value="1">1</option>
+ 		<option value="2">2</option>
+ 		<option value="3">3</option>
+ 		<option value="4">4</option>
+ 		<option value="5">5</option>
+ 	</select>
+ 	</td>
+ 	<td><span>Select number of copies you want...</span></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td>Photo size:</td>
+ 	<td>
+ 	<select>
+ 		<option>32*40</option>
+ 		<option>8*10</option>
+ 	</select>
+ 	</td>
+ 	<td><span>Select in which size you want...</span></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td>Date of Delivery:</td> 
+ 	<td><input type="Date" required=""></td>
+ 	</tr>
+
+ 	<tr>
+ 	<td></td>
+ 	<td align="center"><input type="submit" name="submit" value="Submit" onclick="done()"></td>
+ 	</tr>
+
+
+ 	</table>
+	</form> 
+
+	<script>
+		function done() {
+			var name = document.getElementById("name").value;
+			var x = document.getElementById("copy");
+			var copy = x.options[x.selectedIndex].value;
+   			var con = confirm(" You've selected " +copy+  " number of copy. Your estimated price is: $" +copy*5+ ". Do you want to place an Order? ");
+   			if(con==true){
+   				alert("Your order placed successfully!");
+   			}else
+   			{
+   				alert("You have cancelled it!");
+   			}
+		}
+	</script>
+
+</body>
+</html>
